@@ -12,6 +12,7 @@ import time
 import restconf_final
 from dotenv import load_dotenv
 import os
+import netmiko_final
 
 load_dotenv()
 #######################################################################################
@@ -89,8 +90,8 @@ while True:
             responseMessage = restconf_final.disable()
         elif command == "status":
             responseMessage = restconf_final.status()
-        # elif command == "gigabit_status":
-        #     <!!!REPLACEME with code for gigabit_status command!!!>
+        elif command == "gigabit_status":
+            responseMessage = netmiko_final.gigabit_status()
         # elif command == "showrun":
         #     <!!!REPLACEME with code for showrun command!!!>
         else:
