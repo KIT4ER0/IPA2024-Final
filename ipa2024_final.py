@@ -18,6 +18,7 @@ load_dotenv()
 # 2. Assign the Webex access token to the variable ACCESS_TOKEN using environment variables.
 
 ACCESS_TOKEN = os.environ.get("accesstoken")
+print(ACCESS_TOKEN)
 #######################################################################################
 # 3. Prepare parameters get the latest message for messages API.
 
@@ -44,7 +45,7 @@ while True:
     # - Use the GetParameters to get only the latest message.
     # - Store the message in the "r" variable.
     r = requests.get(
-        "https://webexapis.com/v1/rooms",
+        "https://webexapis.com/v1/messages",
         params=getParameters,
         headers=getHTTPHeader,
     )
@@ -133,7 +134,7 @@ while True:
 
         # Post the call to the Webex Teams message API.
         r = requests.post(
-            "https://webexapis.com/v1/rooms",
+            "https://webexapis.com/v1/messages",
             data=postData,
             headers=HTTPHeaders,
         )
