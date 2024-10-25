@@ -19,24 +19,24 @@ load_dotenv()
 
 ACCESS_TOKEN = os.environ.get("accesstoken")
 #######################################################################################
-# # 3. Prepare parameters get the latest message for messages API.
+# 3. Prepare parameters get the latest message for messages API.
 
-# # Defines a variable that will hold the roomId
-# roomIdToGetMessages = (
-#     "<!!!REPLACEME with roomID of the IPA2024 Webex Teams room!!!>"
-# )
+# Defines a variable that will hold the roomId
+roomIdToGetMessages = (
+    "Y2lzY29zcGFyazovL3VzL1JPT00vNTFmNTJiMjAtNWQwYi0xMWVmLWE5YTAtNzlkNTQ0ZjRkNGZi"
+)
 
-# while True:
-#     # always add 1 second of delay to the loop to not go over a rate limit of API calls
-#     time.sleep(1)
+while True:
+    # always add 1 second of delay to the loop to not go over a rate limit of API calls
+    time.sleep(1)
 
-#     # the Webex Teams GET parameters
-#     #  "roomId" is the ID of the selected room
-#     #  "max": 1  limits to get only the very last message in the room
-#     getParameters = {"roomId": roomIdToGetMessages, "max": 1}
+    # the Webex Teams GET parameters
+    #  "roomId" is the ID of the selected room
+    #  "max": 1  limits to get only the very last message in the room
+    getParameters = {"roomId": roomIdToGetMessages, "max": 1}
 
-#     # the Webex Teams HTTP header, including the Authoriztion
-#     getHTTPHeader = {"Authorization": <!!!REPLACEME!!!>}
+    # the Webex Teams HTTP header, including the Authoriztion
+    getHTTPHeader = {"Authorization": ACCESS_TOKEN}
 
 # # 4. Provide the URL to the Webex Teams messages API, and extract location from the received message.
     
