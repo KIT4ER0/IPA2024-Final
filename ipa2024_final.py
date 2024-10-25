@@ -18,7 +18,7 @@ load_dotenv()
 # 2. Assign the Webex access token to the variable ACCESS_TOKEN using environment variables.
 
 ACCESS_TOKEN = os.environ.get("accesstoken")
-print(ACCESS_TOKEN)
+
 #######################################################################################
 # 3. Prepare parameters get the latest message for messages API.
 
