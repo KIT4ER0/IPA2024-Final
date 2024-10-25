@@ -38,43 +38,43 @@ while True:
     # the Webex Teams HTTP header, including the Authoriztion
     getHTTPHeader = {"Authorization": ACCESS_TOKEN}
 
-# # 4. Provide the URL to the Webex Teams messages API, and extract location from the received message.
+# 4. Provide the URL to the Webex Teams messages API, and extract location from the received message.
     
-#     # Send a GET request to the Webex Teams messages API.
-#     # - Use the GetParameters to get only the latest message.
-#     # - Store the message in the "r" variable.
-#     r = requests.get(
-#         "<!!!REPLACEME with URL of Webex Teams Messages API!!!>",
-#         params=<!!!REPLACEME with HTTP parameters!!!>,
-#         headers=<!!!REPLACEME with HTTP headers!!!>,
-#     )
-#     # verify if the retuned HTTP status code is 200/OK
-#     if not r.status_code == 200:
-#         raise Exception(
-#             "Incorrect reply from Webex Teams API. Status code: {}".format(r.status_code)
-#         )
+    # Send a GET request to the Webex Teams messages API.
+    # - Use the GetParameters to get only the latest message.
+    # - Store the message in the "r" variable.
+    r = requests.get(
+        "https://webexapis.com/v1/rooms",
+        params=getParameters,
+        headers=getHTTPHeader,
+    )
+    # verify if the retuned HTTP status code is 200/OK
+    if not r.status_code == 200:
+        raise Exception(
+            "Incorrect reply from Webex Teams API. Status code: {}".format(r.status_code)
+        )
 
-#     # get the JSON formatted returned data
-#     json_data = r.json()
+    # get the JSON formatted returned data
+    json_data = r.json()
 
-#     # check if there are any messages in the "items" array
-#     if len(json_data["items"]) == 0:
-#         raise Exception("There are no messages in the room.")
+    # check if there are any messages in the "items" array
+    if len(json_data["items"]) == 0:
+        raise Exception("There are no messages in the room.")
 
-#     # store the array of messages
-#     messages = json_data["items"]
+    # store the array of messages
+    messages = json_data["items"]
     
-#     # store the text of the first message in the array
-#     message = messages[0]["text"]
-#     print("Received message: " + message)
+    # store the text of the first message in the array
+    message = messages[0]["text"]
+    print("Received message: " + message)
 
-#     # check if the text of the message starts with the magic character "/" followed by your studentID and a space and followed by a command name
-#     #  e.g.  "/66070123 create"
-#     if message.startswith("<!!!REPLACEME!!!>"):
+    # check if the text of the message starts with the magic character "/" followed by your studentID and a space and followed by a command name
+    #  e.g.  "/66070123 create"
+    if message.startswith("/65070090"):
 
-#         # extract the command
-#         command = <!!!REPLACEME!!!>
-#         print(command)
+        # extract the command
+        command = message.split(" ", 1)[1]
+        print(command)
 
 # # 5. Complete the logic for each command
 
